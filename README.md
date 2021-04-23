@@ -28,6 +28,7 @@ Style C++ avec un !
 //!
 ```
 * B. \file
+
 Permet de créer un bloc de documentation pour un fichier source ou d'en-tête.
 ```ruby
 Déclaration
@@ -36,6 +37,7 @@ Exemple
 \file main.c
 ```
 * C. \brief
+
 Permet de créer une courte description dans un bloc de documentation. La description peut se faire sur une seule ligne ou plusieurs.
 ```ruby
 Déclaration 
@@ -47,6 +49,7 @@ Exemple : description sur plusieurs lignes
        Suite de la courte description.
 ```
 * D. \author▲
+
 Permet d'ajouter un nom d'auteur (ex. : l'auteur d'un fichier ou d'une fonction). Plusieurs balises peuvent être présentes, lors de la génération un seul paragraphe Auteur sera créé, mais les listes d'auteurs seront séparées d'une ligne vide. Une seule balise peut accueillir plusieurs auteurs.
 ```ruby
 Déclaration 
@@ -55,6 +58,7 @@ Exemple
 \author Qannaf.AL-SAHMI
 ```
 * E. \version
+
 Permet l'ajout du numéro de version (ex. : dans le bloc de documentation d'un fichier).
 ```ruby
 Déclaration 
@@ -63,6 +67,7 @@ Exemple
 \version 0.1
 ```
 * F. \date
+
 Permet l'ajout d'une date. Plusieurs balises peuvent être présentes, lors de la génération un seul paragraphe Date sera créé, mais chaque date sera séparée par une ligne vide. Une seule balise peut accueillir plusieurs dates.
 ```ruby
 Déclaration 
@@ -71,6 +76,7 @@ Exemple
 \date 10 septembre 2007
 ```
 * G. \struct
+
 Permet la création d'un bloc de documentation pour une structure. Cette balise peut prendre jusqu'à trois arguments qui sont dans l'ordre :
 
 Nom de la structure ;
@@ -86,6 +92,7 @@ Exemple
 \struct Str_t str.h "Définition"
 ```
 * H. \enum
+
 Permet la création d'un bloc de documentation pour une énumération de constantes.
 ```ruby
 Déclaration 
@@ -94,12 +101,13 @@ Exemple
 \enum Str_err_e
 ```
 * I. \union
-Permet la création d'un bloc de documentation pour une union. L'utilisation est la même que pour une structure (voir le chapitre II-G).
+Permet la création d'un bloc de documentation pour une union. L'utilisation est la même que pour une structure (voir le chapitre G).
 ```ruby
 Déclaration 
 \union <name> [<header-file>] [<header-name>]
 ```
 * J. \fn
+
 Permet la création d'un bloc de documentation pour une fonction ou méthode.
 ```ruby
 Déclaration 
@@ -109,6 +117,7 @@ Exemple
 Il est possible d'omettre cette balise lorsque le bloc de documentation commence juste au-dessus de la déclaration/définition de la fonction/méthode. Doxygen ajoutera de lui-même la signature de la fonction ou de la méthode. On peut donc en conclure que nous pouvons documenter une fonction à peu près n'importe où dans le code, mais dans ce cas, il faut ajouter la balise !
 ```
 * K. \def
+
 Permet la création d'un bloc de documentation pour une macro ou constante symbolique.
 ```ruby
 Déclaration 
@@ -117,6 +126,7 @@ Exemple
 \def MAX(x,y)
 ```
 * L. \param
+
 Permet d'ajouter un paramètre dans un bloc de documentation d'une fonction ou d'une macro. Le premier paramètre est le nom de l'argument à documenter et le second le bloc de description le concernant.
 ```ruby
 Déclaration 
@@ -135,6 +145,7 @@ Sortie
 Paramètres: [in] self Pointeur sur un objet de type Str_t.
 ```
 * M. \return
+
 Permet de décrire le retour d'une fonction ou d'une méthode.
 ```ruby
 Déclaration 
@@ -143,6 +154,7 @@ Exemple
 \return Instance de l'objet, NULL en cas d'erreur.
 ```
 * N. \bug
+
 Permet de commencer un paragraphe décrivant un bug (ou plusieurs). L'utilisation est identique à la balise \author (voir le chapitre).
 ```ruby
 Déclaration 
@@ -151,6 +163,7 @@ Exemple
 \bug Problème d'affichage du texte en sortie
 ```
 * O. \deprecated
+
 Permet d'ajouter un paragraphe précisant que la fonction, marco, etc. est dépréciée, qu'il ne faut donc plus l'utiliser.
 ```ruby
 Déclaration 
@@ -159,6 +172,7 @@ Exemple
 \deprecated Fonction dépréciée, ne plus utiliser !
 ```
 * P. \class
+
 Permet de créer un bloc de documentation d'une classe (C++). L'utilisation est identique à la balise \struct (voir le chapitre).
 ```ruby
 Déclaration 
@@ -167,6 +181,7 @@ Exemple
 \class Str
 ```
 * Q. \namespace
+
 Permet de créer un bloc de documentation pour un espace de nom (C++).
 ```ruby
 Déclaration 
@@ -176,6 +191,7 @@ Exemple
 ```
 ## III. Mise en place de la documentation
 * A. Informations d'en-tête▲
+
 Nous allons voir ici une manière de mettre un bloc d'informations d'en-tête d'un fichier avec les numéros de versions, auteurs, nom de fichiers, etc.
 
 ```ruby
@@ -195,6 +211,7 @@ L'ordre des balises n'a que très peu d'importance, mais cela a un impact sur l'
 On peut également voir que dans le champ date, la date peut prendre la forme que l'on souhaite. La balise sert surtout pour créer le paragraphe avec le bon titre.
 
 * B. Documentation d'une fonction/méthode
+
 Que ce soit pour une fonction ou une méthode de classes (C++), ce bloc ne change pas. Il faut noter qu'il doit y avoir une balise par argument. Tous les paramètres seront alors dans un même paragraphe Paramètres !
 ```ruby
 Exemple pour une fonction en C 
@@ -211,6 +228,7 @@ Remarquez que pour la balise , il faut fournir la déclaration complète de la f
 Il ne faut surtout pas oublier de bien fournir la balise, car une vérification syntaxique de celle-ci sera faite par Doxygen et au moindre problème, il ne générera pas votre documentation !
 
 * C. Documentation d'une structure/union
+
 La documentation d'une structure et d'une union se fait de la même manière, nous allons donc voir ici que le cas d'une structure, ce qui sera retranscrit dans les exemples complets plus bas.
 ```ruby
 /**
@@ -244,6 +262,7 @@ Exemple de sortie
     NB_STR_ERR      Nombre total de constantes d'erreur.
 ```
 * D. Exemple complet en C
+
 Voici un exemple de génération de la documentation de cet exemple : Exemple
 ```ruby 
 /**
@@ -380,6 +399,7 @@ int main (void)
 }
 ```
 * E. Exemple complet en C++
+
 Voici un exemple de génération de la documentation de cet exemple : Exemple
 
 ```ruby
