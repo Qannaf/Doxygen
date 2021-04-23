@@ -4,10 +4,10 @@
 
 Ce qui sera étudié dans ce tutoriel, c'est l'utilisation basique de Doxygen avec un petit détour vers des fonctions avancées pour générer des documentations de références par exemple celles de GTK+.
 
-## II. Les balises standards▲
+## II. Les balises standards
 Ce chapitre vous présente succinctement les balises les plus utilisées avec Doxygen. Pour la liste complète, rendez-vous sur le site officiel: Special Commands.
 
-* A. Les blocs de documentation▲
+* A. Les blocs de documentation
 Diverses combinaisons sont possibles pour créer des blocs de documentation, dans le style C ou C++ pour notre cas !
 ```ruby
 Style C avec deux *
@@ -130,49 +130,55 @@ Exemple avec un tag [in]
 \param[in] self Pointeur sur un objet de type Str_t.
 ```
 La sortie serait alors :
-
+```ruby
 Sortie 
 Paramètres: [in] self Pointeur sur un objet de type Str_t.
-II-M. \return▲
+```
+* M. \return
 Permet de décrire le retour d'une fonction ou d'une méthode.
-
+```ruby
 Déclaration 
 \return { description of the return value }
 Exemple 
 \return Instance de l'objet, NULL en cas d'erreur.
-II-N. \bug▲
+```
+* N. \bug
 Permet de commencer un paragraphe décrivant un bug (ou plusieurs). L'utilisation est identique à la balise \author (voir le chapitre).
-
+```ruby
 Déclaration 
 \bug { bug description }
 Exemple 
 \bug Problème d'affichage du texte en sortie
-II-O. \deprecated▲
+```
+* O. \deprecated
 Permet d'ajouter un paragraphe précisant que la fonction, marco, etc. est dépréciée, qu'il ne faut donc plus l'utiliser.
-
+```ruby
 Déclaration 
 \deprecated { description }
 Exemple 
 \deprecated Fonction dépréciée, ne plus utiliser !
-II-P. \class▲
+```
+* P. \class
 Permet de créer un bloc de documentation d'une classe (C++). L'utilisation est identique à la balise \struct (voir le chapitre).
-
+```ruby
 Déclaration 
 \class <name> [<header-file>] [<header-name>]
 Exemple 
 \class Str
-II-Q. \namespace▲
+```
+* Q. \namespace
 Permet de créer un bloc de documentation pour un espace de nom (C++).
-
+```ruby
 Déclaration 
 \namespace <name>
 Exemple 
 \namespace std
-III. Mise en place de la documentation▲
-III-A. Informations d'en-tête▲
+```
+## III. Mise en place de la documentation▲
+* A. Informations d'en-tête▲
 Nous allons voir ici une manière de mettre un bloc d'informations d'en-tête d'un fichier avec les numéros de versions, auteurs, nom de fichiers, etc.
 
-  
+```ruby
 /**
  * \file main.c
  * \brief Programme de tests.
@@ -183,13 +189,14 @@ Nous allons voir ici une manière de mettre un bloc d'informations d'en-tête d'
  * Programme de test pour l'objet de gestion des chaines de caractères Str_t.
  *
  */
+ ```
 L'ordre des balises n'a que très peu d'importance, mais cela a un impact sur l'ordre de génération du paragraphe et donc de l'affichage. Ce qu'on peut remarquer de plus et qui n'a pas été abordé jusque-là, c'est qu'on peut ajouter des commentaires en dehors de la balise . Ceci sera en effet considéré par Doxygen comme une description détaillée et se trouvera alors dans un paragraphe intitulé Description détaillée.
 
 On peut également voir que dans le champ date, la date peut prendre la forme que l'on souhaite. La balise sert surtout pour créer le paragraphe avec le bon titre.
 
-III-B. Documentation d'une fonction/méthode▲
+* B. Documentation d'une fonction/méthode
 Que ce soit pour une fonction ou une méthode de classes (C++), ce bloc ne change pas. Il faut noter qu'il doit y avoir une balise par argument. Tous les paramètres seront alors dans un même paragraphe Paramètres !
-
+```ruby
 Exemple pour une fonction en C 
 /**
  * \fn static Str_t * str_new (const char * sz)
@@ -198,14 +205,14 @@ Exemple pour une fonction en C
  * \param sz Chaine à stocker dans l'objet Str_t, ne peut être NULL.
  * \return Instance nouvellement allouée d'un objet de type Str_t ou NULL.
  */
+ ```
 Remarquez que pour la balise , il faut fournir la déclaration complète de la fonction ou de la méthode !
 
 Il ne faut surtout pas oublier de bien fournir la balise, car une vérification syntaxique de celle-ci sera faite par Doxygen et au moindre problème, il ne générera pas votre documentation !
 
-III-C. Documentation d'une structure/union▲
+* C. Documentation d'une structure/union
 La documentation d'une structure et d'une union se fait de la même manière, nous allons donc voir ici que le cas d'une structure, ce qui sera retranscrit dans les exemples complets plus bas.
-
-  
+```ruby
 /**
  * \struct Str_t
  * \brief Objet chaine de caractères.
@@ -214,11 +221,11 @@ La documentation d'une structure et d'une union se fait de la même manière, no
  * La chaine se termine obligatoirement par un zéro de fin et l'objet 
  * connait la taille de chaine contient !
  */
+ ```
 Jusque-là rien de bien difficile, on peut simplement remarquer que nous n'avons ici, pas renseigné les champs optionnels de la balise. Une particularité qui n'a pas été abordée est que nous pouvons commenter les différents champs d'une structure, d'une union et même des variables membres d'une classe.
 
 Voici comment procéder :
-
-  
+```ruby
 typedef enum
 {
    STR_NO_ERR,    /*!< Pas d'erreur. */
@@ -227,17 +234,18 @@ typedef enum
    NB_STR_ERR     /*!< Nombre total de constantes d'erreur. */
 }
 Str_err_e;
+```
 L'opérateur qu'il faut essentiellement retenir est « < » qui permet alors de documenter un membre, ici d'une structure, ce qui produit une génération de ce genre :
-
+```ruby
 Exemple de sortie 
 Énumération:
     STR_NO_ERR      Pas d'erreur.
     STR_EMPTY_ERR   Erreur: Objet vide ou non initialisé.
     NB_STR_ERR      Nombre total de constantes d'erreur.
-III-D. Exemple complet en C▲
+```
+* D. Exemple complet en C
 Voici un exemple de génération de la documentation de cet exemple : Exemple
-
-  
+```ruby 
 /**
  * \file main.c
  * \brief Programme de tests.
@@ -370,10 +378,11 @@ int main (void)
  
    return EXIT_SUCCESS;
 }
-III-E. Exemple complet en C++▲
+```
+* E. Exemple complet en C++▲
 Voici un exemple de génération de la documentation de cet exemple : Exemple
 
-  
+```ruby
 #ifndef CPLAYER_H_
 #define CPLAYER_H_
  
@@ -466,4 +475,4 @@ namespace player
 };
  
 #endif
-IV. Avant d'al
+```
