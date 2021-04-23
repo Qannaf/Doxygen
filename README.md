@@ -174,7 +174,7 @@ Déclaration
 Exemple 
 \namespace std
 ```
-## III. Mise en place de la documentation▲
+## III. Mise en place de la documentation
 * A. Informations d'en-tête▲
 Nous allons voir ici une manière de mettre un bloc d'informations d'en-tête d'un fichier avec les numéros de versions, auteurs, nom de fichiers, etc.
 
@@ -379,7 +379,7 @@ int main (void)
    return EXIT_SUCCESS;
 }
 ```
-* E. Exemple complet en C++▲
+* E. Exemple complet en C++
 Voici un exemple de génération de la documentation de cet exemple : Exemple
 
 ```ruby
