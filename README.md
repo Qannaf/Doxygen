@@ -8,6 +8,7 @@ Ce qui sera étudié dans ce tutoriel, c'est l'utilisation basique de Doxygen av
 Ce chapitre vous présente succinctement les balises les plus utilisées avec Doxygen. Pour la liste complète, rendez-vous sur le site officiel: Special Commands.
 
 * A. Les blocs de documentation
+
 Diverses combinaisons sont possibles pour créer des blocs de documentation, dans le style C ou C++ pour notre cas !
 ```ruby
 Style C avec deux *
@@ -48,7 +49,7 @@ Exemple : description sur plusieurs lignes
 \brief Courte description.
        Suite de la courte description.
 ```
-* D. \author▲
+* D. \author
 
 Permet d'ajouter un nom d'auteur (ex. : l'auteur d'un fichier ou d'une fonction). Plusieurs balises peuvent être présentes, lors de la génération un seul paragraphe Auteur sera créé, mais les listes d'auteurs seront séparées d'une ligne vide. Une seule balise peut accueillir plusieurs auteurs.
 ```ruby
@@ -101,6 +102,7 @@ Exemple
 \enum Str_err_e
 ```
 * I. \union
+
 Permet la création d'un bloc de documentation pour une union. L'utilisation est la même que pour une structure (voir le chapitre G).
 ```ruby
 Déclaration 
@@ -190,7 +192,7 @@ Exemple
 \namespace std
 ```
 ## III. Mise en place de la documentation
-* A. Informations d'en-tête▲
+* A. Informations d'en-tête
 
 Nous allons voir ici une manière de mettre un bloc d'informations d'en-tête d'un fichier avec les numéros de versions, auteurs, nom de fichiers, etc.
 
