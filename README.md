@@ -1,3 +1,7 @@
+<p align="center">
+  <img width="426" height="111" src="https://blog.mbedded.ninja/programming/general/doxygen/doxygen-logo.png">
+</p>
+
 # Initiation à Doxygen pour C et C++
 # I. Introduction
 À l'image de Javadoc, l'outil d'autodocumentation pour Java, Doxygen permet de créer des documentations techniques pour notamment le C et le C++, mais couvre également d'autres langages, y compris Java !
